@@ -19,11 +19,26 @@ namespace CS4242GeneticAlgorithm
             population = new StringBuilder[6];
             eval = new List<Tuple<int, StringBuilder>>();
             crossed = new List<Tuple<int, StringBuilder>>();
+            bool valid = false;
+            int num = 0;
 
             generatePopulation(6);
 
-            Console.WriteLine("How many generations do you want?");
-            int num = Convert.ToInt32(Console.ReadLine());
+            while (!valid)
+            {
+                try
+                {
+                    Console.WriteLine("How many generations do you want?");
+                    num = Convert.ToInt32(Console.ReadLine());
+                    valid = true;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Invalid number. Try again.");
+                }
+            }
+            
+            
 
             for (int i = 0; i < num; i++)
             {
